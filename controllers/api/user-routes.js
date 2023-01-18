@@ -36,7 +36,8 @@ router.post("/users", async (req, res) => {
 });
 
 // Login
-router.post("/login", async (req, res) => {
+router.post("/users/login", async (req, res) => {
+  console.log("hekko world");
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -74,7 +75,8 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout
-router.post("/logout", (req, res) => {
+router.post("/users/logout", (req, res) => {
+  console.log("hello world");
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
